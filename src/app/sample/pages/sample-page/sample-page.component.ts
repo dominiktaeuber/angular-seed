@@ -18,7 +18,6 @@ export class SamplePageComponent implements OnInit, OnDestroy {
 
 	private routeParamsSubscription: Subscription;
 	public routeParams: any;
-	public sampleItem: string;
 
 	////
 	// Constructor
