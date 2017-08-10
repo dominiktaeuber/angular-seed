@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {SampleService} from '../../../core/services/sample.service';
 import {ActivatedRoute} from '@angular/router';
 import * as _ from 'lodash';
 import {Subscription} from 'rxjs/Subscription';
+
+import {HttpService} from '../../../core/services/http.service';
 
 @Component({
 	selector: 'app-sample-page',
@@ -11,16 +12,26 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class SamplePageComponent implements OnInit, OnDestroy {
 
+	////
+	// Class Properties
+	////
+
 	private routeParamsSubscription: Subscription;
 	public routeParams: any;
 	public sampleItem: string;
 
-	constructor(private sampleService: SampleService, private activatedRoute: ActivatedRoute) {
+	////
+	// Constructor
+	////
+
+	constructor(private activatedRoute: ActivatedRoute, private httpService: HttpService) {
 	}
 
-	ngOnInit() {
-		this.sampleItem = this.sampleService.getSampleItem();
+	////
+	// Lifecycle hooks
+	////
 
+	ngOnInit() {
 		this.routeParamsSubscription = this.activatedRoute.params.subscribe( params => {
 
 			if (!_.isEmpty(params)) {
@@ -31,5 +42,21 @@ export class SamplePageComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this.routeParamsSubscription.unsubscribe();
+	}
+
+	////
+	// Methods
+	////
+
+	/**
+	 * Calls the httpService to issue a GET-Request
+	 */
+	protected getComments() {
+
+		this.httpService.get('/comments').subscribe(result => {
+			console.log('result', result);
+		}, error => {
+			console.log('error', error);
+		});
 	}
 }

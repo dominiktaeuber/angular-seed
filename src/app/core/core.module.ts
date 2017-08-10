@@ -1,17 +1,22 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SampleService} from './services/sample.service';
 import {ReactiveFormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpModule} from '@angular/http';
+
+import {HttpService} from './services/http.service';
 
 @NgModule({
 	imports: [
 		CommonModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		BrowserModule,
+		HttpModule
 	],
 	providers: [
 
 		// Singleton services
-		SampleService
+		HttpService
 	],
 	exports: [
 

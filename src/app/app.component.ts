@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {SampleService} from './core/services/sample.service';
 
 @Component({
 	selector: 'app-root',
@@ -9,6 +8,5 @@ import {SampleService} from './core/services/sample.service';
 export class AppComponent {
 
 	constructor() {
-		SampleService.setSampleItem();
 	}
 }
