@@ -5,6 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 
 import {HttpService} from './services/http.service';
+import {CommentService} from './services/comment.service';
 
 @NgModule({
 	imports: [
@@ -16,7 +17,8 @@ import {HttpService} from './services/http.service';
 	providers: [
 
 		// Singleton services
-		HttpService
+		HttpService,
+		CommentService
 	],
 	exports: [
 

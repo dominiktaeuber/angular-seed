@@ -3,7 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import * as _ from 'lodash';
 import {Subscription} from 'rxjs/Subscription';
 
-import {HttpService} from '../../../core/services/http.service';
+import {CommentService} from '../../../core/services/comment.service';
+import {Comment} from '../../../core/models/comment.model';
 
 @Component({
 	selector: 'app-sample-page',
@@ -17,13 +18,16 @@ export class SamplePageComponent implements OnInit, OnDestroy {
 	////
 
 	private routeParamsSubscription: Subscription;
+	private commentSubscription: Subscription;
+
 	public routeParams: any;
+	public comments: Comment[];
 
 	////
 	// Constructor
 	////
 
-	constructor(private activatedRoute: ActivatedRoute, private httpService: HttpService) {
+	constructor(private activatedRoute: ActivatedRoute, private commentService: CommentService) {
 	}
 
 	////
@@ -41,6 +45,7 @@ export class SamplePageComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this.routeParamsSubscription.unsubscribe();
+		this.commentSubscription.unsubscribe();
 	}
 
 	////
@@ -48,14 +53,12 @@ export class SamplePageComponent implements OnInit, OnDestroy {
 	////
 
 	/**
-	 * Calls the httpService to issue a GET-Request
+	 * Uses the CommentService to get a set of comments
 	 */
-	protected getComments() {
+	protected getComments(): void {
 
-		this.httpService.get('/comments').subscribe(result => {
-			console.log('result', result);
-		}, error => {
-			console.log('error', error);
+		this.commentSubscription = this.commentService.getComments().subscribe((comments: Comment[]) => {
+			this.comments = comments;
 		});
 	}
 }

@@ -3,6 +3,8 @@ import {Http, URLSearchParams, RequestMethod, ResponseContentType, Response, Req
 import {Observable} from 'rxjs/Observable';
 import * as _ from 'lodash';
 
+import {HttpResponse} from '../models/http-response.model';
+
 @Injectable()
 export class HttpService {
 
@@ -39,7 +41,7 @@ export class HttpService {
 		url: string, method: RequestMethod,
 		data?: {},
 		responseType: ResponseContentType = ResponseContentType.Json
-	): Observable<Response> {
+	): Observable<HttpResponse> {
 
 		// Prepare requestOptions
 		const requestOptions: RequestOptions = new RequestOptions({
@@ -67,7 +69,20 @@ export class HttpService {
 		// Set response type
 		requestOptions.responseType = responseType;
 
-		return this.http.request(this.apiUrl + url, requestOptions);
+		return new Observable(subscriber => {
+			this.http.request(this.apiUrl + url, requestOptions).subscribe((response: Response) => {
+
+				subscriber.next(new HttpResponse(response['status'], response['statusText'], response['_body']));
+				subscriber.complete();
+			}, error => {
+
+				// Handle any errors here!
+
+				console.error('Error on Http-Request', error);
+				subscriber.error(error);
+				subscriber.complete();
+			});
+		});
 	}
 
 	/**
@@ -76,9 +91,9 @@ export class HttpService {
 	 * @param {string} url - Route to call
 	 * @param {{}} data - Literal object containing key / value pairs
 	 * @param {ResponseContentType} responseType - Type of the response e.g. JSON
-	 * @returns {Observable<Response>} - Observable containing the response from the API
+	 * @returns {Observable<HttpResponse>} - Observable containing the response from the API
 	 */
-	public get(url: string, data?: {}, responseType: ResponseContentType = ResponseContentType.Json): Observable<Response> {
+	public get(url: string, data?: {}, responseType: ResponseContentType = ResponseContentType.Json): Observable<HttpResponse> {
 
 		return this.createHttpRequest(url, RequestMethod.Get, data, responseType);
 	}
@@ -89,9 +104,9 @@ export class HttpService {
 	 * @param {string} url - Route to call
 	 * @param {{}} data - Literal object containing key / value pairs
 	 * @param {ResponseContentType} responseType - Type of the response e.g. JSON
-	 * @returns {Observable<Response>} - Observable containing the response from the API
+	 * @returns {Observable<HttpResponse>} - Observable containing the response from the API
 	 */
-	public post(url: string, data?: {}, responseType: ResponseContentType = ResponseContentType.Json): Observable<Response> {
+	public post(url: string, data?: {}, responseType: ResponseContentType = ResponseContentType.Json): Observable<HttpResponse> {
 
 		return this.createHttpRequest(url, RequestMethod.Post, data, responseType);
 	}
@@ -102,9 +117,9 @@ export class HttpService {
 	 * @param {string} url - Route to call
 	 * @param {{}} data - Literal object containing key / value pairs
 	 * @param {ResponseContentType} responseType - Type of the response e.g. JSON
-	 * @returns {Observable<Response>} - Observable containing the response from the API
+	 * @returns {Observable<HttpResponse>} - Observable containing the response from the API
 	 */
-	public put(url: string, data?: {}, responseType: ResponseContentType = ResponseContentType.Json): Observable<Response> {
+	public put(url: string, data?: {}, responseType: ResponseContentType = ResponseContentType.Json): Observable<HttpResponse> {
 
 		return this.createHttpRequest(url, RequestMethod.Put, data, responseType);
 	}
@@ -115,9 +130,9 @@ export class HttpService {
 	 * @param {string} url - Route to call
 	 * @param {{}} data - Literal object containing key / value pairs
 	 * @param {ResponseContentType} responseType - Type of the response e.g. JSON
-	 * @returns {Observable<Response>} - Observable containing the response from the API
+	 * @returns {Observable<HttpResponse>} - Observable containing the response from the API
 	 */
-	public delete(url: string, data?: {}, responseType: ResponseContentType = ResponseContentType.Json): Observable<Response> {
+	public delete(url: string, data?: {}, responseType: ResponseContentType = ResponseContentType.Json): Observable<HttpResponse> {
 
 		return this.createHttpRequest(url, RequestMethod.Delete, data, responseType);
 	}
