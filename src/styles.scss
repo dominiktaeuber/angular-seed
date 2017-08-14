@@ -1,4 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
 
-// Angular Material Theme
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
+
+// Overrides for Material Design
+@import './app/material/overrides';
+
+// Main Colors used throughout the application
+$primary-color: #3cc693;
+$primary-color-light: #76fac4;
+$primary-color-dark: #009465;
+
+$secondary-color: #607d8b;
+$secondary-color-light: #8eacbb;
+$secondary-color-dark: #34515e;
+
+.dark-text {
+	color: black !important;
+}
+
+.light-text {
+	color: white !important;
+}
+
+.primary {
+	background-color: $primary-color;
+
+	&.light {
+		background-color: $primary-color-light
+	}
+
+	&.dark {
+		background-color: $primary-color-dark;
+	}
+}
+
+.secondary {
+	background-color: $secondary-color;
+
+	&.light {
+		background-color: $secondary-color-light;
+	}
+
+	&.dark {
+		background-color: $secondary-color-dark;
+	}
+}
+
+// General styling for the entire application. Can overwritten inside components if necessary.
+body {
+	font-size: 1em;
+	line-height: 1.75em;
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
+}

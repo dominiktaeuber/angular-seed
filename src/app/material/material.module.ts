@@ -5,18 +5,21 @@
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {MdToolbarModule} from '@angular/material'
+import {MdToolbarModule} from '@angular/material';
+import {MdButtonModule} from '@angular/material';
 
 @NgModule({
 	imports: [
 		BrowserAnimationsModule,
 
-		MdToolbarModule
+		MdToolbarModule,
+		MdButtonModule
 	],
 	exports: [
 		BrowserAnimationsModule,
 
-		MdToolbarModule
+		MdToolbarModule,
+		MdButtonModule
 	]
 })
 export class MaterialModule {

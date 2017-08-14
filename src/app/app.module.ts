@@ -9,23 +9,20 @@ import 'hammerjs';
 
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
-import {SampleModule} from './sample/sample.module';
-import {RoutingModule} from './routing/routing.module';
-import {MaterialModule} from './material/material.module';
+import {appRouting} from './app.routes';
 
 @NgModule({
-	declarations: [
-		AppComponent
-	],
 	imports: [
 		BrowserModule,
 
-		CoreModule,
-		RoutingModule,
-		MaterialModule,
-		SampleModule
+		appRouting,
+		CoreModule
 	],
+	exports: [],
 	providers: [],
+	declarations: [
+		AppComponent
+	],
 	bootstrap: [AppComponent]
 })
 
