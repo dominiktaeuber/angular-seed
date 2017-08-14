@@ -1,19 +1,23 @@
+/**
+ * Is used as a play- and testing-ground.
+ */
+
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 
 import {SamplePageComponent} from './pages/sample-page/sample-page.component';
 import {SharedModule} from '../shared/shared.module';
+import {HeaderComponent} from './components/header/header.component';
+import {MaterialModule} from '../material/material.module';
 
 @NgModule({
 	imports: [
-		CommonModule,
+		MaterialModule,
 		SharedModule
 	],
 	declarations: [
-		SamplePageComponent
-	],
-	exports: []
+		SamplePageComponent,
+		HeaderComponent
+	]
 })
-
 export class SampleModule {
 }

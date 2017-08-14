@@ -1,10 +1,13 @@
+/**
+ * Contains and manages routing related tasks.
+ * E.g.: Specifies route definitions and provides guards for organized route access.
+ */
+
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
 import {appRoutes} from './routes/app.routes';
 import {SampleGuard} from './guards/sample.guard';
-
-// Import Routes
 
 @NgModule({
 	imports: [
@@ -22,6 +25,5 @@ import {SampleGuard} from './guards/sample.guard';
 	],
 	declarations: []
 })
-
 export class RoutingModule {
 }

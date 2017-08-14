@@ -1,3 +1,8 @@
+/**
+ * Provides all the core functionality for the application.
+ * E.g.: Singleton Services and Modules which are only imported once.
+ */
+
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -14,20 +19,18 @@ import {CommentService} from './services/comment.service';
 		BrowserModule,
 		HttpModule
 	],
-	providers: [
-
-		// Singleton services
-		HttpService,
-		CommentService
-	],
 	exports: [
 
 		// Export core modules
 		CommonModule,
 		ReactiveFormsModule
 	],
-	declarations: []
-})
+	providers: [
 
+		// Singleton services
+		HttpService,
+		CommentService
+	]
+})
 export class CoreModule {
 }
