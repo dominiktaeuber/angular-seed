@@ -5,6 +5,7 @@ import {Subscription} from 'rxjs/Subscription';
 
 import {CommentService} from '../../../core/services/comment.service';
 import {Comment} from '../../../core/models/comment.model';
+import {NotificationService} from '../../../core/services/notification.service';
 
 @Component({
 	selector: 'app-sample-page',
@@ -27,7 +28,7 @@ export class SamplePageComponent implements OnInit, OnDestroy {
 	// Constructor
 	////
 
-	constructor(private activatedRoute: ActivatedRoute, private commentService: CommentService) {
+	constructor(private activatedRoute: ActivatedRoute, private commentService: CommentService, private notificationService: NotificationService) {
 	}
 
 	////
@@ -60,5 +61,9 @@ export class SamplePageComponent implements OnInit, OnDestroy {
 		this.commentSubscription = this.commentService.getComments().subscribe((comments: Comment[]) => {
 			this.comments = comments;
 		});
+	}
+
+	protected publishNewInformation() {
+		this.notificationService.publishNewInformation(123);
 	}
 }

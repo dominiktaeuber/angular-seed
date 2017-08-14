@@ -5,6 +5,8 @@
 <p *ngIf="routeParams">Route Parameters were found: </p>
 <pre>{{routeParams | json}}</pre>
 
+<button (click)="publishNewInformation()">Publish new info</button>
+
 <button (click)="getComments()">Get some JSON Data</button>
 
 <pre>{{comments | json}}</pre>
