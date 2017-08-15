@@ -4,9 +4,8 @@
  */
 
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 
 import {HttpService} from './services/http.service';
@@ -14,16 +13,15 @@ import {CommentService} from './services/comment.service';
 
 @NgModule({
 	imports: [
-		CommonModule,
 		ReactiveFormsModule,
-		BrowserModule,
+		BrowserAnimationsModule,
 		HttpModule
 	],
 	exports: [
 
 		// Export core modules
-		CommonModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		BrowserAnimationsModule
 	],
 	providers: [
 

@@ -1,0 +1,139 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
+
+// Main Colors used throughout the application
+$primary-color: #3cc693;
+$primary-color-light: #76fac4;
+$primary-color-dark: #009465;
+
+$secondary-color: #607d8b;
+$secondary-color-light: #8eacbb;
+$secondary-color-dark: #34515e;
+
+$error-color: red;
+
+$dark-text: black;
+$light-text: white;
+$secondary-text: lightgray;
+
+// General styling for the entire application. Can overwritten inside components if necessary.
+body {
+	font-size: 1em;
+	line-height: 1.75em;
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
+}
+
+////
+// Class definitions for coloring
+////
+
+.dark-text {
+	color: $dark-text
+}
+
+.light-text {
+	color: $light-text;
+}
+
+.secondary-text {
+	color: $secondary-text;
+}
+
+.primary {
+	background-color: $primary-color;
+
+	&.light {
+		background-color: $primary-color-light
+	}
+
+	&.dark {
+		background-color: $primary-color-dark;
+	}
+}
+
+.secondary {
+	background-color: $secondary-color;
+
+	&.light {
+		background-color: $secondary-color-light;
+	}
+
+	&.dark {
+		background-color: $secondary-color-dark;
+	}
+}
+
+////
+// Create padding and margin helpers for quick layouts
+////
+
+// Padding
+@for $i from 0 through 50 {
+	.p-#{$i} {
+		padding: #{$i}px
+	}
+}
+
+// Padding Top
+@for $i from 0 through 50 {
+	.pt-#{$i} {
+		padding-top: #{$i}px
+	}
+}
+
+// Padding Right
+@for $i from 0 through 50 {
+	.pr-#{$i} {
+		padding-right: #{$i}px
+	}
+}
+
+// Padding Bottom
+@for $i from 0 through 50 {
+	.pb-#{$i} {
+		padding-bottom: #{$i}px
+	}
+}
+
+// Padding Left
+@for $i from 0 through 50 {
+	.pl-#{$i} {
+		padding-left: #{$i}px
+	}
+}
+
+// Margin
+@for $i from 0 through 50 {
+	.m-#{$i} {
+		margin: #{$i}px
+	}
+}
+
+// Margin Top
+@for $i from 0 through 50 {
+	.mt-#{$i} {
+		margin-top: #{$i}px
+	}
+}
+
+// Margin Right
+@for $i from 0 through 50 {
+	.mr-#{$i} {
+		margin-right: #{$i}px
+	}
+}
+
+// Margin Bottom
+@for $i from 0 through 50 {
+	.mb-#{$i} {
+		margin-bottom: #{$i}px
+	}
+}
+
+// Margin Left
+@for $i from 0 through 50 {
+	.ml-#{$i} {
+		margin-left: #{$i}px
+	}
+}

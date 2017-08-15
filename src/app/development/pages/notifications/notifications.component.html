@@ -1,3 +1,25 @@
-<p>
-  notifications works!
-</p>
+<div class="content">
+	<form [formGroup]="form">
+
+		<label>Notification Header:
+			<input formControlName="header" />
+		</label>
+
+		<br />
+
+		<label>Notification Body:
+			<input formControlName="body" />
+		</label>
+
+		<label>
+			<select formControlName="type">
+				<option value="success">Success</option>
+				<option value="error">Error</option>
+				<option value="attention">Attention</option>
+			</select>
+		</label>
+
+	</form>
+
+	<button md-raised-button color="accent" (click)="showNotification()">Show Notification</button>
+</div>

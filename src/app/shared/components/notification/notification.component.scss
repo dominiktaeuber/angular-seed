@@ -1,0 +1,23 @@
+.card-container {
+	position: absolute;
+	top: 50px;
+	right: 50px;
+}
+
+.card {
+
+	&.success {
+
+		border-left: 10px solid #76fac4;
+	}
+
+	&.error {
+
+		border-left: 10px solid red;
+	}
+
+	&.attention {
+
+		border-left: 10px solid #607d8b;
+	}
+}

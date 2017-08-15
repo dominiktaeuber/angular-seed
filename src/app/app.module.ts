@@ -3,20 +3,17 @@
  * Bootstraps the Angular Application.
  */
 
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import 'hammerjs';
 
-import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
+import {AppComponent} from './app.component';
 import {appRouting} from './app.routes';
 
 @NgModule({
 	imports: [
-		BrowserModule,
-
-		appRouting,
-		CoreModule
+		CoreModule,
+		appRouting
 	],
 	exports: [],
 	providers: [],
@@ -25,6 +22,5 @@ import {appRouting} from './app.routes';
 	],
 	bootstrap: [AppComponent]
 })
-
 export class AppModule {
 }

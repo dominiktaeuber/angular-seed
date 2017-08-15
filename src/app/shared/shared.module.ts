@@ -1,14 +1,21 @@
 import {NgModule} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 
 import {NotificationComponent} from './components/notification/notification.component';
 import {NotificationService} from '../core/services/notification.service';
+import {MaterialModule} from '../material/material.module';
+
 
 @NgModule({
 	imports: [
-		CommonModule
+		CommonModule,
+		ReactiveFormsModule,
+		MaterialModule
 	],
 	exports: [
+		CommonModule,
+		ReactiveFormsModule,
 		NotificationComponent
 	],
 	providers: [
@@ -18,6 +25,5 @@ import {NotificationService} from '../core/services/notification.service';
 		NotificationComponent
 	]
 })
-
 export class SharedModule {
 }

@@ -3,23 +3,21 @@
  */
 
 import {NgModule} from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {MdToolbarModule} from '@angular/material';
 import {MdButtonModule} from '@angular/material';
+import {MdCardModule} from '@angular/material'
 
 @NgModule({
 	imports: [
-		BrowserAnimationsModule,
-
 		MdToolbarModule,
-		MdButtonModule
+		MdButtonModule,
+		MdCardModule
 	],
 	exports: [
-		BrowserAnimationsModule,
-
 		MdToolbarModule,
-		MdButtonModule
+		MdButtonModule,
+		MdCardModule
 	]
 })
 export class MaterialModule {
