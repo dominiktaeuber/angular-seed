@@ -1,13 +1,6 @@
-<!--<div *ngIf="showNotification">-->
-	<!--<md-card class="card" [ngClass]="value['type']">-->
-		<!--<h3>{{value['header']}}</h3>-->
-		<!--<p>{{value['body']}}</p>-->
-	<!--</md-card>-->
-<!--</div>-->
-
 <div class="card-container">
-	<md-card *ngFor="let notification of notificationQueue" [@flyInOut]="notification['state']" class="card mb-15" [ngClass]="notification['type']">
-		<h5>{{notification['header']}}</h5>
-		<p>{{notification['body']}}</p>
-	</md-card>
+	<div *ngFor="let notification of notificationQueue" [@flyInOut]="notification['state']" [ngClass]="['alert', 'alert-' + notification.type]" role="alert">
+		<strong>{{notification['header']}}</strong>
+		{{notification['body']}}
+	</div>
 </div>

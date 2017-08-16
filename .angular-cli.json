@@ -19,7 +19,6 @@
 			"testTsconfig": "tsconfig.spec.json",
 			"prefix": "app",
 			"styles": [
-				"app/material/custom-theme.scss",
 				"styles.scss"
 			],
 			"scripts": [],

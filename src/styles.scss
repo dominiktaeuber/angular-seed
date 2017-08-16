@@ -1,3 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-// Theme
-@import './app/material/theme';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap.scss';
+
+// Custom Theme
+@import 'custom-theme';

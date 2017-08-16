@@ -1,25 +1,34 @@
-<div class="content">
-	<form [formGroup]="form">
+<div class="container">
+	<div class="row">
+		<div class="col-10 offset-1">
+			<form [formGroup]="form">
+				<div class="row">
 
-		<label>Notification Header:
-			<input formControlName="header" />
-		</label>
+					<div class="form-group col-md-6">
+						<label for="notification-header">Notification Header</label>
+						<input id="notification-header" class="form-control" formControlName="header" />
+					</div>
 
-		<br />
+					<div class="form-group col-md-6">
+						<label for="notification-body">Notification Body</label>
+						<input class="form-control" id="notification-body" formControlName="body" />
+					</div>
 
-		<label>Notification Body:
-			<input formControlName="body" />
-		</label>
+					<div class="col-md-3">
+						<button class="btn btn-default secondary light" (click)="showNotification()">Show Notification</button>
+					</div>
 
-		<label>
-			<select formControlName="type">
-				<option value="success">Success</option>
-				<option value="error">Error</option>
-				<option value="attention">Attention</option>
-			</select>
-		</label>
+					<div class="form-group col-md-3">
+						<label class="sr-only" for="notification-type"></label>
+						<select id="notification-type" class="form-control" formControlName="type">
+							<option value="success">Success</option>
+							<option value="danger">Danger</option>
+							<option value="info">Info</option>
+						</select>
+					</div>
 
-	</form>
-
-	<button md-raised-button color="accent" (click)="showNotification()">Show Notification</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>

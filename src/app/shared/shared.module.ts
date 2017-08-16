@@ -4,14 +4,12 @@ import {CommonModule} from '@angular/common';
 
 import {NotificationComponent} from './components/notification/notification.component';
 import {NotificationService} from '../core/services/notification.service';
-import {MaterialModule} from '../material/material.module';
 
 
 @NgModule({
 	imports: [
 		CommonModule,
-		ReactiveFormsModule,
-		MaterialModule
+		ReactiveFormsModule
 	],
 	exports: [
 		CommonModule,

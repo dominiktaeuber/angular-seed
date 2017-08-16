@@ -16,14 +16,6 @@ $dark-text: black;
 $light-text: white;
 $secondary-text: lightgray;
 
-// General styling for the entire application. Can overwritten inside components if necessary.
-body {
-	font-size: 1em;
-	line-height: 1.75em;
-	font-family: 'Raleway', sans-serif;
-	margin: 0;
-}
-
 ////
 // Class definitions for coloring
 ////
@@ -62,6 +54,10 @@ body {
 	&.dark {
 		background-color: $secondary-color-dark;
 	}
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
 }
 
 ////
