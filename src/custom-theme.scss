@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Raleway:300');
+@import url('https://fonts.googleapis.com/css?family=Raleway:500');
 
 // Main Colors used throughout the application
 $primary-color: #3cc693;
@@ -28,6 +28,10 @@ $secondary-text: lightgray;
 	color: $light-text;
 }
 
+.error-text {
+	color: $error-color;
+}
+
 .secondary-text {
 	color: $secondary-text;
 }
@@ -53,6 +57,16 @@ $secondary-text: lightgray;
 
 	&.dark {
 		background-color: $secondary-color-dark;
+	}
+}
+
+.btn-outline-secondary {
+	color: $secondary-color;
+	border-color: $secondary-color;
+
+	&:hover {
+		background-color: $secondary-color;
+		border-color: $secondary-color;
 	}
 }
 

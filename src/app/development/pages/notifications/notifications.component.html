@@ -7,6 +7,7 @@
 					<div class="form-group col-md-6">
 						<label for="notification-header">Notification Header</label>
 						<input id="notification-header" class="form-control" formControlName="header" />
+						<small class="form-text text-muted">Small text under the Input for errors or further instructions.</small>
 					</div>
 
 					<div class="form-group col-md-6">
@@ -15,7 +16,7 @@
 					</div>
 
 					<div class="col-md-3">
-						<button class="btn btn-default secondary light" (click)="showNotification()">Show Notification</button>
+						<button class="btn btn-outline-secondary" (click)="showNotification()">Show Notification</button>
 					</div>
 
 					<div class="form-group col-md-3">
@@ -25,6 +26,7 @@
 							<option value="danger">Danger</option>
 							<option value="info">Info</option>
 						</select>
+						<small class="form-text text-muted">Notification type</small>
 					</div>
 
 				</div>
