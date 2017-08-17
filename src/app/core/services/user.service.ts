@@ -5,10 +5,10 @@ import * as _ from 'lodash';
 
 import {HttpService} from './http.service';
 import {HttpResponse} from '../models/http-response.model';
-import {Comment} from '../models/comment.model';
+import {User} from '../models/user.model';
 
 @Injectable()
-export class CommentService {
+export class UserService {
 
 	constructor(private httpService: HttpService) {
 	}
@@ -18,18 +18,21 @@ export class CommentService {
 	 *
 	 * @returns {Observable<Comment[]>}
 	 */
-	public getComments(): Observable<Comment[]> {
+	public findUsers(): Observable<User[]> {
 
-		return this.httpService.get('/comments').map((response: HttpResponse) => {
+		return this.httpService.get('/users/find').map((response: HttpResponse) => {
 
-			const comments = [];
+			const users = [];
 
 			_.each(response.data, (item) => {
-				comments.push(new Comment(item));
+				users.push(new User(item));
 			});
 
-			return comments;
+			return users;
 		});
 	}
 
+	public createUser(userData): Observable<any> {
+		return this.httpService.post('/users/create', userData);
+	}
 }

@@ -21,7 +21,7 @@ export class HttpService {
 	constructor(private http: Http) {
 
 		// URL fo testing purposes
-		this.apiUrl = 'https://jsonplaceholder.typicode.com';
+		this.apiUrl = 'http://localhost:1337/api';
 	}
 
 	////

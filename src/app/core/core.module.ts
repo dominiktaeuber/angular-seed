@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 
 import {HttpService} from './services/http.service';
-import {CommentService} from './services/comment.service';
+import {UserService} from './services/user.service';
 
 @NgModule({
 	imports: [
@@ -27,7 +27,7 @@ import {CommentService} from './services/comment.service';
 
 		// Singleton services
 		HttpService,
-		CommentService
+		UserService
 	]
 })
 export class CoreModule {

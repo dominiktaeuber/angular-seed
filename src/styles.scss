@@ -4,3 +4,10 @@
 
 // Bootstrap
 @import 'assets/bootstrap-4.0.0-beta/bootstrap';
+
+input.ng-touched.ng-invalid {
+
+	border-color: $error-color;
+
+	border-left: 5px solid $error-color;
+}
