@@ -5,6 +5,8 @@ export class User {
 	public id: string = null;
 	public firstName: string = null;
 	public lastName: string = null;
+	public userName: string = null;
+	public email: string = null;
 
 	public createdAt: string = null;
 	public updatedAt: string = null;
