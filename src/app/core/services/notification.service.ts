@@ -1,6 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 
+interface NotificationConfig {
+
+}
+
 @Injectable()
 export class NotificationService {
 

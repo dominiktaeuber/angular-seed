@@ -4,6 +4,8 @@ import {CommonModule} from '@angular/common';
 
 import {NotificationComponent} from './components/notification/notification.component';
 import {NotificationService} from '../core/services/notification.service';
+import {AuthenticatedGuard} from './guards/authenticated.guard';
+import {NotAuthenticatedGuard} from './guards/not-authenticated.guard';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import {NotificationService} from '../core/services/notification.service';
 		NotificationComponent
 	],
 	providers: [
-		NotificationService
+		NotificationService,
+		AuthenticatedGuard,
+		NotAuthenticatedGuard
 	],
 	declarations: [
 		NotificationComponent

@@ -10,6 +10,7 @@ import {HttpModule} from '@angular/http';
 
 import {HttpService} from './services/http.service';
 import {UserService} from './services/user.service';
+import {SessionService} from './services/session.service';
 
 @NgModule({
 	imports: [
@@ -27,6 +28,7 @@ import {UserService} from './services/user.service';
 
 		// Singleton services
 		HttpService,
+		SessionService,
 		UserService
 	]
 })

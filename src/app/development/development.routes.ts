@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {NotificationsComponent} from './pages/notifications/notifications.component';
 import {DevelopmentComponent} from './development.component';
 import {HttpComponent} from './pages/http/http.component';
+import {AuthenticatedGuard} from '../shared/guards/authenticated.guard';
 
 const developmentRoutes: Routes = [
 	{
@@ -16,11 +17,13 @@ const developmentRoutes: Routes = [
 			},
 			{
 				path: 'notifications',
-				component: NotificationsComponent
+				component: NotificationsComponent,
+				canActivate: [AuthenticatedGuard]
 			},
 			{
 				path: 'http',
-				component: HttpComponent
+				component: HttpComponent,
+				canActivate: [AuthenticatedGuard]
 			}
 		]
 	}

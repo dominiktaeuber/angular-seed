@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Http, URLSearchParams, RequestMethod, ResponseContentType, Response, RequestOptions} from '@angular/http';
+import {Http, URLSearchParams, RequestMethod, ResponseContentType, Response, RequestOptions, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import * as _ from 'lodash';
 
 import {HttpResponse} from '../models/http-response.model';
+import {UserService} from './user.service';
 
 @Injectable()
 export class HttpService {
@@ -43,9 +44,13 @@ export class HttpService {
 		responseType: ResponseContentType = ResponseContentType.Json
 	): Observable<HttpResponse> {
 
+		const headers = new Headers();
+		headers.append('Authorization', localStorage.getItem('jwt'));
+
 		// Prepare requestOptions
 		const requestOptions: RequestOptions = new RequestOptions({
-			method: method
+			method: method,
+			headers: headers
 		});
 
 		// Process data if available
